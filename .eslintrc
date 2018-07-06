@@ -1,0 +1,94 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "jest/globals": true
+  },
+  "settings": {
+    "react": {
+        "pragma": "h"
+    }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+      "arrowFunctions": true,
+      "binaryLiterals": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "forOf": true,
+      "generators": true,
+      "globalReturn": true,
+      "modules": true,
+      "objectLiteralComputedProperties": true,
+      "objectLiteralDuplicateProperties": true,
+      "objectLiteralShorthandMethods": true,
+      "objectLiteralShorthandProperties": true,
+      "octalLiterals": true,
+      "regexUFlag": true,
+      "regexYFlag": true,
+      "restParams": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "unicodeCodePointEscapes": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "import",
+    "babel",
+    "jest"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "rules": {
+    "arrow-parens": 0,
+    "arrow-body-style": 0,
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "no-console": "off",
+    "class-methods-use-this": 0,
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 0,
+    "no-continue": 0,
+    "no-unused-vars": 2,
+    "no-return-assign": 0,
+    "no-case-declarations": 0,
+    "no-mixed-operators": 0,
+    "comma-dangle": 0,
+    "react/forbid-component-props": 0,
+    "forbid-component-props": 0,
+    "function-paren-newline": 0,
+    "no-redeclare": 0,
+    "object-curly-newline": 0,
+    "max-len": ["error", 200],
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-no-bind": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/href-no-hash": 0,
+    "react/prefer-stateless-function": 0,
+    "yoda": ["error", "never", { "exceptRange": true }]
+  }
+}

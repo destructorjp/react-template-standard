@@ -1,6 +1,10 @@
-import React from 'react';
+import './debug';
+import './style/index.css';
+import './style/reset.css';
+
+import React from 'react'; // eslint-disable-line no-unused-vars
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
