@@ -12,3 +12,12 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
+// firebase storage
+export function getAssetImageUrl(path) {
+  const encodedPath = encodeURIComponent(path.replace(/^\//, ''));
+
+  return `https://firebasestorage.googleapis.com/v0/b/${
+    Config.FIREBASE_STORAGE_BUCKET
+  }/o/${encodedPath}?alt=media`;
+}
