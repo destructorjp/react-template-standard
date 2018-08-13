@@ -1,4 +1,8 @@
-import firebase from 'firebase';
+import firebase from '@firebase/app';
+import '@firebase/auth';
+import '@firebase/storage';
+import '@firebase/firestore';
+
 import uuid from 'uuid';
 
 import Config from './Config';
@@ -62,6 +66,10 @@ export function getPhoneNumberConfirmationResult() {
   return confirmationResult;
 }
 
+export function signOut() {
+  return firebase.auth().signOut();
+}
+
 // firestore
 const db = firebase.firestore();
 
@@ -109,6 +117,26 @@ export function uploadImage(path, image) {
       .then(() => resolve(getAssetImageUrl(filePath)))
       .catch(error => reject(error));
   });
+}
+
+export function uploadImages(path, images) {
+  return Promise.all(
+    images.map(async image => {
+      if (!image.file) {
+        return image.uri;
+      }
+
+      const fileName = uuid.v4();
+
+      const rootPath = path.replace(/^\//, '');
+
+      const filePath = `${rootPath}/${fileName}`;
+
+      const uploader = storage.child(filePath);
+
+      return uploader.put(image.file).then(() => getAssetImageUrl(filePath));
+    })
+  );
 }
 
 export function uploadFiles(path, files) {
