@@ -1,8 +1,9 @@
-import firebase from '@firebase/app';
 import '@firebase/auth';
-import '@firebase/storage';
 import '@firebase/firestore';
+import '@firebase/storage';
 
+import firebase from '@firebase/app';
+import moment from 'moment';
 import uuid from 'uuid';
 
 import Config from './Config';
@@ -19,6 +20,9 @@ const config = {
 firebase.initializeApp(config);
 
 // firebase auth
+export function getFirebaseIdToken() {
+  return firebase.auth().currentUser.getIdToken(true);
+}
 
 // email
 export function signUpWithEmailAndPassword(email, password) {
@@ -84,7 +88,7 @@ export function getCollection(collection) {
 }
 
 export function getTimestamp() {
-  return firebase.firestore.FieldValue.serverTimestamp();
+  return moment().toISOString();
 }
 
 // firebase storage
@@ -154,3 +158,5 @@ export function uploadFiles(path, files) {
     })
   );
 }
+
+export default firebase;
