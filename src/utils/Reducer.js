@@ -28,3 +28,13 @@ export function getCachedHash(list) {
     };
   }, {});
 }
+
+export function getDeletedList(datum, list, idKey = 'id') {
+  return list.reduce((acc, item) => {
+    if (item[idKey] === datum[idKey]) {
+      return acc;
+    }
+
+    return [item, ...acc];
+  }, []);
+}

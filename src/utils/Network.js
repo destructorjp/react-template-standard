@@ -65,11 +65,11 @@ export async function request(
     //
   }
 
-  let paramsWithToken = {};
+  let paramsWithToken = params;
 
   if (token) {
     paramsWithToken = {
-      ...params,
+      ...paramsWithToken,
       idToken: token
     };
   }
